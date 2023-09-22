@@ -13,11 +13,20 @@ EasyPermissions is installed by adding the following dependency to your `build.g
 ```groovy
 dependencies {
     // For developers using AndroidX in their applications
-    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation 'com.github.steadyseller:easypermissions:3.0.1'
  
     // For developers using the Android Support Library
     implementation 'pub.devrel:easypermissions:2.0.1'
 }
+allprojects {
+    repositories {
+        //add jitpack repository
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
+}
+
 ```
 
 ## Usage
