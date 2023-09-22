@@ -11,13 +11,8 @@ library which adds Kotlin extensions to the core EasyPermissions library.
 EasyPermissions is installed by adding the following dependency to your `build.gradle` file:
 
 ```groovy
-dependencies {
-    // For developers using AndroidX in their applications
-    implementation 'com.github.steadyseller:easypermissions:3.0.1'
- 
-    // For developers using the Android Support Library
-    implementation 'pub.devrel:easypermissions:2.0.1'
-}
+
+//project level build.gradle
 allprojects {
     repositories {
         //add jitpack repository
@@ -25,6 +20,15 @@ allprojects {
             url 'https://jitpack.io'
         }
     }
+}
+
+//app level build.gradle
+dependencies {
+    // For developers using AndroidX in their applications
+    implementation 'com.github.steadyseller:easypermissions:3.0.1'
+ 
+    // For developers using the Android Support Library
+    implementation 'pub.devrel:easypermissions:2.0.1'
 }
 
 ```
