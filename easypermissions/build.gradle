@@ -1,22 +1,39 @@
-apply plugin: 'com.android.library'
-
-// See: https://github.com/vanniktech/gradle-maven-publish-plugin/issues/206
-ext {
-  RELEASE_REPOSITORY_URL = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-  SNAPSHOT_REPOSITORY_URL = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
 }
 
-apply plugin: 'com.vanniktech.maven.publish'
+afterEvaluate {
+    publishing{
+        publications{
+            release(MavenPublication){
+                from components.release
+                groupId = 'com.steadyseller'
+                artifactId = 'easypermissions'
+                version = '3.0.1'
+            }
+
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+                groupId = 'com.steadyseller'
+                artifactId = 'easypermissions'
+                version = '3.0.1'
+            }
+        }
+    }
+}
+
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     testOptions.unitTests.includeAndroidResources = true
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
-        versionName "3.0.0"
+        versionName "3.0.1"
     }
 
     buildTypes {
